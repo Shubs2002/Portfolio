@@ -9,10 +9,6 @@ export const metadata: Metadata = {
   title: "Shubham Nakashe | Full Stack Developer",
   description: "Passionate Full Stack Web Developer specializing in MERN, Flask, AI-driven applications, and e-commerce platforms. Let's build something amazing together.",
   keywords: ["Full Stack Developer", "Web Development", "MERN Stack", "React", "Next.js", "AI Projects", "E-commerce"],
-  icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
