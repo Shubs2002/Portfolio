@@ -25,7 +25,7 @@ const clients = [
   },
   {
     icon: Video,
-    name: "Floofs World",
+    name: "Floof's World",
     type: "YouTube Content Creator",
     description: "Providing AI-powered video production through AVPE - automating scriptwriting, character design, voice generation, and video creation for their YouTube channel.",
     services: ["AVPE Integration", "AI Video Production", "Content Automation"],
