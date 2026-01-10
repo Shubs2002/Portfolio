@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --black-deep: #0a0a0a;
+  --black-card: #111111;
+  --purple-glow: #7c3aed;
+  --blue-glow: #3b82f6;
+  --purple-accent: #a855f7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black-deep);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Gradient text matching card style */
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+  }
+}
+
+/* Accent line like visiting card */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #a855f7, #7c3aed);
+  border-radius: 2px;
+}
+
+/* Background gradient blobs */
+.bg-blob-purple {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
+}
+
+.bg-blob-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple-glow);
+  border-radius: 3px;
+}
+
+/* Mobile touch feedback */
+@media (max-width: 768px) {
+  .card-hover:active {
+    transform: scale(0.98);
+  }
+  
+  button:active, a:active {
+    opacity: 0.8;
+  }
+}
+
+/* Prevent text selection on buttons */
+button, .btn {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+  .safe-area-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  .safe-area-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
 }
