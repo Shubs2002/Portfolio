@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import Link from "next/link";
-import { ExternalLink, Github, ShoppingCart, Brain, Video, Package, Rocket, Plane, Leaf, Globe, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ExternalLink, Github, ShoppingCart, Brain, Video, Package, Rocket, Plane, Leaf, Globe, ArrowRight, Search } from "lucide-react";
 
 const products = [
   { 
@@ -15,14 +15,15 @@ const products = [
     tech: ["Next.js", "TypeScript", "Google Analytics"], 
     link: "https://next-gen-finance.vercel.app", 
     color: "from-blue-600 to-indigo-600",
-    featured: true
+    featured: true,
+    inDevelopment: true
   },
   { 
     icon: Video, 
     title: "AVPE",
     slug: "avpe",
     description: "AI-powered video production ecosystem automating scriptwriting, character design, voice generation, and video creation for social media.", 
-    tech: ["Python", "FastAPI", "Google Veo-3", "OpenAI", "React"], 
+    tech: ["Python", "FastAPI", "Google Veo-3.1", "React"], 
     color: "from-violet-600 to-purple-600",
     featured: true
   },
@@ -58,14 +59,20 @@ const products = [
 ];
 
 const otherProjects = [
-  { icon: Rocket, title: "Xplore", slug: "xplore", description: "Space exploration website with Firebase auth and interactive animations.", tech: ["HTML", "CSS", "Firebase"], color: "from-orange-600 to-red-600" },
-  { icon: Leaf, title: "Fruit Detection AI", slug: "fruit-detection-ai", description: "AI computer vision to help blind individuals choose quality fruits.", tech: ["Python", "OpenCV", "ML"], color: "from-green-600 to-emerald-600" },
-  { icon: Plane, title: "AI Drone Autopilot", slug: "ai-drone-autopilot", description: "BUG2 algorithm for autonomous drone navigation in rescue & agriculture.", tech: ["Python", "BUG2"], color: "from-cyan-600 to-blue-600" },
+  { icon: Rocket, title: "Xplore", slug: "xplore", description: "Space exploration website with Firebase auth and interactive animations.", tech: ["HTML", "CSS", "Firebase"], color: "from-orange-600 to-red-600", github: "https://github.com/Shubs2002/IP_projet_sem5/tree/main/Internet%20Programming%20Project" },
+  { icon: Leaf, title: "Fruit Detection AI", slug: "fruit-detection-ai", description: "AI computer vision to help blind individuals choose quality fruits.", tech: ["Python", "OpenCV", "ML"], color: "from-green-600 to-emerald-600", github: "https://github.com/Shubs2002/Sem5_miniproj_Fruit_detection_and_classification" },
+  { icon: Plane, title: "AI Drone Autopilot", slug: "ai-drone-autopilot", description: "BUG2 algorithm for autonomous drone navigation in rescue & agriculture.", tech: ["Python", "BUG2", "A*", "Unreal Engine", "OpenCV"], color: "from-cyan-600 to-blue-600" },
+  { icon: Search, title: "Document Indexing", slug: "document-indexing", description: "AI-powered semantic document search with Google Gemini and auto-categorization.", tech: ["React", "Bun", "Elysia.js", "Gemini AI", "Supabase"], color: "from-indigo-600 to-purple-600", github: "https://github.com/Shubs2002/Documents_indexing" },
 ];
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const router = useRouter();
+
+  const handleCardClick = (slug: string) => {
+    router.push(`/project/${slug}`);
+  };
 
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative">
@@ -77,16 +84,17 @@ export default function Projects() {
         </motion.div>
 
         {/* Featured Products - Top 4 */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12 auto-rows-fr">
           {products.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-[#111] border border-gray-800 rounded-xl sm:rounded-2xl overflow-hidden card-hover"
+              onClick={() => handleCardClick(project.slug)}
+              className="group bg-[#111] border border-gray-800 rounded-xl sm:rounded-2xl overflow-hidden card-hover cursor-pointer flex flex-col"
             >
-              <div className={`h-36 sm:h-44 bg-gradient-to-r ${project.color} relative`}>
+              <div className={`h-36 sm:h-44 bg-gradient-to-r ${project.color} relative flex-shrink-0`}>
                 <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <project.icon size={44} className="sm:w-14 sm:h-14 text-white/80" />
@@ -97,9 +105,9 @@ export default function Projects() {
                   </div>
                 )}
               </div>
-              <div className="p-4 sm:p-6">
+              <div className="p-4 sm:p-6 flex flex-col flex-grow">
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-3">{project.description}</p>
+                <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {project.tech.slice(0, 5).map((tech, j) => (
                     <span key={j} className="px-2 py-0.5 sm:py-1 bg-[#0a0a0a] border border-gray-800 rounded text-gray-500 text-[10px] sm:text-xs">{tech}</span>
@@ -108,18 +116,18 @@ export default function Projects() {
                     <span className="px-2 py-0.5 sm:py-1 text-purple-500 text-[10px] sm:text-xs">+{project.tech.length - 5}</span>
                   )}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-auto">
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-xs sm:text-sm">
-                      <ExternalLink size={14} /> Live
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-xs sm:text-sm">
+                      <ExternalLink size={14} /> {project.inDevelopment ? "Dev Live" : "Live"}
                     </a>
                   )}
-                  <a href={project.github || "https://github.com/Shubs2002"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-gray-500 hover:text-gray-400 text-xs sm:text-sm">
+                  <a href={project.github || "https://github.com/Shubs2002"} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex items-center gap-1.5 text-gray-500 hover:text-gray-400 text-xs sm:text-sm">
                     <Github size={14} /> Code
                   </a>
-                  <Link href={`/project/${project.slug}`} className="flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-xs sm:text-sm ml-auto">
+                  <span className="flex items-center gap-1.5 text-purple-500 text-xs sm:text-sm ml-auto">
                     Details <ArrowRight size={14} />
-                  </Link>
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -134,14 +142,15 @@ export default function Projects() {
           className="mb-8 sm:mb-12"
         >
           <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 text-center lg:text-left">Other Projects</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {otherProjects.map((project, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                className="group bg-[#111] border border-gray-800 rounded-xl sm:rounded-2xl overflow-hidden card-hover"
+                onClick={() => handleCardClick(project.slug)}
+                className="group bg-[#111] border border-gray-800 rounded-xl sm:rounded-2xl overflow-hidden card-hover cursor-pointer h-full"
               >
                 <div className={`h-28 sm:h-32 bg-gradient-to-r ${project.color} relative`}>
                   <div className="absolute inset-0 bg-black/30" />
@@ -158,12 +167,12 @@ export default function Projects() {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a href="https://github.com/Shubs2002" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-gray-500 hover:text-gray-400 text-xs sm:text-sm">
+                    <a href={project.github || "https://github.com/Shubs2002"} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex items-center gap-1.5 text-gray-500 hover:text-gray-400 text-xs sm:text-sm">
                       <Github size={14} /> Code
                     </a>
-                    <Link href={`/project/${project.slug}`} className="flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-xs sm:text-sm ml-auto">
+                    <span className="flex items-center gap-1.5 text-purple-500 text-xs sm:text-sm ml-auto">
                       Details <ArrowRight size={14} />
-                    </Link>
+                    </span>
                   </div>
                 </div>
               </motion.div>

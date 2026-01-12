@@ -41,10 +41,13 @@ export default function Services() {
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{service.title}</h3>
               <p className="text-gray-500 text-sm mb-4 sm:mb-6 line-clamp-2">{service.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 {service.features.map((feature, j) => (
                   <span key={j} className="px-2 sm:px-3 py-1 bg-[#0a0a0a] border border-gray-800 rounded text-gray-500 text-xs">{feature}</span>
                 ))}
+                <a href="#contact" className="px-3 py-1 bg-purple-600 rounded text-white text-xs font-medium hover:bg-purple-700 transition-colors">
+                  Get Quote
+                </a>
               </div>
             </motion.div>
           ))}

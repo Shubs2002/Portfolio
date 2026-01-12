@@ -3,17 +3,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ShoppingCart, TrendingUp, Quote, Video, ExternalLink } from "lucide-react";
+import { ShoppingCart, TrendingUp, Quote, Video, ExternalLink, Instagram } from "lucide-react";
 
 const clients = [
-  {
-    icon: ShoppingCart,
-    name: "Aadya Creation",
-    type: "E-Commerce",
-    description: "Built a complete e-commerce platform with product management, secure payments, and responsive design that boosted their online sales.",
-    services: ["Full Stack Development", "Payment Integration", "UI/UX Design"],
-    color: "from-purple-600 to-pink-600",
-  },
   {
     icon: TrendingUp,
     name: "Next-gen Finance",
@@ -26,7 +18,7 @@ const clients = [
   {
     icon: Video,
     name: "Floof's World",
-    type: "YouTube Content Creator",
+    type: "Content Creator",
     description: "Providing AI-powered video production through AVPE - automating scriptwriting, character design, voice generation, and video creation for their YouTube channel.",
     services: ["AVPE Integration", "AI Video Production", "Content Automation"],
     color: "from-red-600 to-orange-600",
@@ -36,12 +28,30 @@ const clients = [
   {
     icon: Video,
     name: "ArtRage Studios",
-    type: "YouTube Content Creator",
+    type: "Content Creator",
     description: "Leveraging AVPE for automated video production pipeline - from scriptwriting to final video creation for their creative content channel.",
     services: ["AVPE Integration", "AI Video Production", "Content Automation"],
     color: "from-violet-600 to-purple-600",
     link: "https://youtube.com/@artrage-studios?si=KoLRKZimpUNYhL-g",
     isYouTube: true,
+  },
+  {
+    icon: Instagram,
+    name: "AVPE Productions",
+    type: "Instagram Content Creator",
+    description: "Using AVPE to create engaging AI-generated video content for their Instagram channel with automated production workflows.",
+    services: ["AVPE Integration", "AI Video Production", "Social Media Content"],
+    color: "from-pink-600 to-rose-600",
+    link: "https://www.instagram.com/avpe.productions?igsh=MTE3NzBnMHN6b2t6eg==",
+    isInstagram: true,
+  },
+  {
+    icon: ShoppingCart,
+    name: "Aadya Creation",
+    type: "E-Commerce",
+    description: "Built a complete e-commerce platform with product management, secure payments, and responsive design that boosted their online sales.",
+    services: ["Full Stack Development", "Payment Integration", "UI/UX Design"],
+    color: "from-purple-600 to-pink-600",
   },
 ];
 
@@ -104,7 +114,7 @@ export default function Clients() {
 
                 {client.link && (
                   <a href={client.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-xs sm:text-sm">
-                    <ExternalLink size={14} /> {client.isYouTube ? "View Channel" : "Visit Website"}
+                    <ExternalLink size={14} /> {client.isYouTube ? "View Channel" : client.isInstagram ? "View Profile" : "Visit Website"}
                   </a>
                 )}
               </div>

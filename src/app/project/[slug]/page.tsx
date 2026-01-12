@@ -3,11 +3,11 @@
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search } from "lucide-react";
 import { getProjectBySlug } from "@/data/projects";
 
 const iconMap: { [key: string]: React.ElementType } = {
-  Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane
+  Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search
 };
 
 export default function ProjectPage() {
@@ -98,7 +98,7 @@ export default function ProjectPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <ExternalLink size={18} /> View Live
+                    <ExternalLink size={18} /> {project.status === "In Development" ? "Dev Live" : "View Live"}
                   </motion.a>
                 )}
                 {project.github && (
@@ -184,7 +184,7 @@ export default function ProjectPage() {
                               className="inline-flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-sm"
                             >
                               <ExternalLink size={14} />
-                              {client.isYouTube ? "View Channel" : "Visit Website"}
+                              {client.isYouTube ? "View Channel" : client.isInstagram ? "View Profile" : "Visit Website"}
                             </a>
                           )}
                         </motion.div>

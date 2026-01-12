@@ -3,6 +3,7 @@ export interface Client {
   type: string;
   link?: string;
   isYouTube?: boolean;
+  isInstagram?: boolean;
 }
 
 export interface Project {
@@ -137,7 +138,7 @@ export const projects: Project[] = [
     clients: [
       { name: "Next-gen Finance", type: "Financial Services", link: "https://next-gen-finance.vercel.app" }
     ],
-    status: "Live",
+    status: "In Development",
     year: "2024"
   },
   {
@@ -162,11 +163,13 @@ export const projects: Project[] = [
       "Content scheduling",
       "Analytics dashboard"
     ],
-    tech: ["Python", "FastAPI", "Google Veo-3", "OpenAI GPT", "React", "Node.js"],
+    tech: ["Python", "FastAPI", "Google Veo-3.1", "React", "Node.js", "Next JS", "Gemini 3"],
     color: "from-violet-600 to-purple-600",
     clients: [
-      { name: "Floofs World", type: "YouTube Content Creator", link: "https://youtube.com/@floofsworld?si=jA2pyxddlk6gu_yR", isYouTube: true },
-      { name: "ArtRage Studios", type: "YouTube Content Creator", link: "https://youtube.com/@artrage-studios?si=KoLRKZimpUNYhL-g", isYouTube: true }
+      { name: "Floof's World", type: "YouTube Content Creator", link: "https://youtube.com/@floofsworld?si=jA2pyxddlk6gu_yR", isYouTube: true },
+      { name: "Floof's World", type: "Instagram Content Creator", link: "https://www.instagram.com/floofs._.world?igsh=MXh4eDBwaWwxMDFoMQ==", isInstagram: true },
+      { name: "ArtRage Studios", type: "YouTube Content Creator", link: "https://youtube.com/@artrage-studios?si=KoLRKZimpUNYhL-g", isYouTube: true },
+      { name: "AVPE Productions", type: "Instagram Content Creator", link: "https://www.instagram.com/avpe.productions?igsh=MTE3NzBnMHN6b2t6eg==", isInstagram: true }
     ],
     status: "In Development",
     year: "2025"
@@ -193,6 +196,7 @@ export const projects: Project[] = [
     ],
     tech: ["HTML", "CSS", "JavaScript", "Anime.js", "Firebase"],
     color: "from-orange-600 to-red-600",
+    github: "https://github.com/Shubs2002/IP_projet_sem5/tree/main/Internet%20Programming%20Project",
     status: "Completed",
     year: "2023"
   },
@@ -218,6 +222,7 @@ export const projects: Project[] = [
     ],
     tech: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
     color: "from-green-600 to-emerald-600",
+    github: "https://github.com/Shubs2002/Sem5_miniproj_Fruit_detection_and_classification",
     status: "Completed",
     year: "2024"
   },
@@ -235,16 +240,46 @@ export const projects: Project[] = [
     ],
     features: [
       "BUG2 algorithm implementation",
+      "A* pathfinding algorithm",
       "Autonomous navigation",
       "Obstacle avoidance",
       "Military applications",
       "Precision agriculture support",
-      "Rescue operation capabilities"
+      "Rescue operation capabilities",
+      "Unreal Engine simulation"
     ],
-    tech: ["Python", "BUG2 Algorithm", "Drone Control", "Path Planning"],
+    tech: ["Python", "BUG2", "A*", "Unreal Engine", "OpenCV"],
     color: "from-cyan-600 to-blue-600",
     status: "Completed",
     year: "2024"
+  },
+  {
+    slug: "document-indexing",
+    icon: "Search",
+    title: "AI-Powered Knowledge Search",
+    tagline: "Semantic Document Search System",
+    description: "Modern intelligent document search system powered by Google Gemini AI with semantic search and automatic categorization.",
+    fullDescription: [
+      "AI-Powered Knowledge Search is a modern, intelligent document search system powered by Google Gemini AI.",
+      "Upload documents, search by meaning (not just keywords), and find what you need instantly using advanced semantic search with 768-dimensional embeddings.",
+      "Features intelligent categorization where Gemini AI automatically organizes documents by topic, team, and project with smart AI-generated tags.",
+      "Built with a modern tech stack including React, Bun, Elysia.js, and Supabase with pgvector for efficient vector similarity search."
+    ],
+    features: [
+      "Google Gemini AI-powered semantic search",
+      "Intelligent auto-categorization",
+      "Smart AI-generated tagging",
+      "Multi-format support (PDF, DOCX, TXT, MD, HTML, JSON)",
+      "Real-time search with live suggestions",
+      "Cloud storage on Cloudinary CDN",
+      "Vector embeddings with pgvector",
+      "Beautiful dark theme UI"
+    ],
+    tech: ["React", "TypeScript", "Vite", "Bun", "Elysia.js", "Google Gemini AI", "Supabase", "PostgreSQL", "pgvector", "Cloudinary"],
+    color: "from-indigo-600 to-purple-600",
+    github: "https://github.com/Shubs2002/Documents_indexing",
+    status: "Completed",
+    year: "2025"
   }
 ];
 
