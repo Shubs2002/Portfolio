@@ -2,15 +2,21 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search } from "lucide-react";
 import type { Project } from "@/data/projects";
+
+const iconMap: { [key: string]: React.ElementType } = {
+  Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search
+};
 
 interface ProjectContentProps {
   project: Project;
-  IconComponent: React.ElementType;
+  iconName: string;
 }
 
-export default function ProjectContent({ project, IconComponent }: ProjectContentProps) {
+export default function ProjectContent({ project, iconName }: ProjectContentProps) {
+  const IconComponent = iconMap[iconName] || Package;
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Background blobs */}

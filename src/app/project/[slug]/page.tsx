@@ -56,7 +56,5 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-  const IconComponent = iconMap[project.icon] || Package;
-
-  return <ProjectContent project={project} IconComponent={IconComponent} />;
+  return <ProjectContent project={project} iconName={project.icon} />;
 }
