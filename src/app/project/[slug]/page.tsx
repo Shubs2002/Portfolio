@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search } from "lucide-react";
 import { getProjectBySlug } from "@/data/projects";
+import { useEffect } from "react";
 
 const iconMap: { [key: string]: React.ElementType } = {
   Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search
@@ -14,6 +15,30 @@ export default function ProjectPage() {
   const params = useParams();
   const slug = params.slug as string;
   const project = getProjectBySlug(slug);
+
+  // Update page metadata dynamically
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.title} | Shubham Nakashe`;
+      
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', project.description);
+      }
+      
+      // Update OG tags
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute('content', `${project.title} | Shubham Nakashe`);
+      }
+      
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogDescription) {
+        ogDescription.setAttribute('content', project.description);
+      }
+    }
+  }, [project]);
 
   if (!project) {
     return (
