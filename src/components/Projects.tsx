@@ -4,9 +4,19 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
-import { ExternalLink, Github, ShoppingCart, Brain, Video, Package, Rocket, Plane, Leaf, Globe, ArrowRight, Search } from "lucide-react";
+import { ExternalLink, Github, ShoppingCart, Brain, Video, Package, Rocket, Plane, Leaf, Globe, ArrowRight, Search, Building2 } from "lucide-react";
 
 const products = [
+  { 
+    icon: Building2, 
+    title: "Forever Consultants",
+    slug: "forever-consultants",
+    description: "Full-service financial advisory website — LIC Insurance, Mutual Funds, Health Insurance — with booking, vCards, SEO & Analytics. Delivered in 2 weeks.", 
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Cal.com", "SEO"], 
+    link: "https://www.foreverconsultants.in", 
+    color: "from-amber-600 to-orange-600",
+    featured: true
+  },
   { 
     icon: Brain, 
     title: "Next-gen Finance",

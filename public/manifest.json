@@ -1,7 +1,7 @@
 {
-  "name": "Shubham Nakashe - Full Stack Developer Portfolio",
+  "name": "Shubham Nakashe — Full Stack Developer & AI Specialist Portfolio",
   "short_name": "Shubham Nakashe",
-  "description": "Full Stack Web Developer specializing in MERN, Flask, AI-driven applications, and e-commerce platforms",
+  "description": "Full Stack Web Developer & AI Specialist from Mumbai, India. Expert in MERN Stack, Next.js, Python, AI/ML. 10+ production projects delivered for financial advisors, content creators & startups.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
@@ -21,7 +21,9 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["business", "portfolio", "technology"],
-  "lang": "en-US",
-  "dir": "ltr"
+  "categories": ["business", "portfolio", "technology", "developer", "web-development"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
 }

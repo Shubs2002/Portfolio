@@ -25,6 +25,39 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "forever-consultants",
+    icon: "Building2",
+    title: "Forever Consultants",
+    tagline: "Financial Advisory & Insurance Platform",
+    description: "Full-service financial advisory website for an award-winning Mumbai-based firm — LIC Insurance, Mutual Funds, Health Insurance — with booking system, vCards, SEO & Google Analytics. Delivered in 2 weeks.",
+    fullDescription: [
+      "Forever Consultants is a comprehensive, production-grade website built for an award-winning financial advisory firm based in Mumbai, specializing in LIC Insurance, Mutual Funds, SIP, Mediclaim & Health Insurance with ₹50Cr+ AUM.",
+      "The platform features a stunning modern UI with scroll-based navigation, animated service cards, a trophy showcase carousel, and multiple booking channels integrated via Cal.com for Google Meet, personal visits, and on-premises consultations.",
+      "Built with advanced SEO optimization including structured data (JSON-LD), Open Graph tags, sitemap, robots.txt, Google Analytics, Google Search Console, and Bing Webmaster Tools integration — achieving excellent search engine visibility.",
+      "Additional features include downloadable digital vCards for the firm's consultants, a client testimonial section, daily rate-limited contact forms via EmailJS, and a fully responsive design optimized for all devices. Delivered end-to-end in just 2 weeks."
+    ],
+    features: [
+      "Scroll-based animated navigation",
+      "Service detail pages (LIC, Mutual Funds, Health)",
+      "Cal.com booking integration (4 appointment types)",
+      "Digital vCard downloads for consultants",
+      "Trophy showcase carousel",
+      "Client testimonials section",
+      "Contact form with daily rate limiting",
+      "Google Analytics & Search Console integration",
+      "Structured data (JSON-LD) for rich snippets",
+      "Fully responsive & SEO optimized"
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "EmailJS", "Cal.com", "Vercel", "Google Analytics", "SEO"],
+    color: "from-amber-600 to-orange-600",
+    link: "https://www.foreverconsultants.in",
+    clients: [
+      { name: "Forever Consultants", type: "Financial Advisory Firm", link: "https://www.foreverconsultants.in" }
+    ],
+    status: "Live",
+    year: "2025"
+  },
+  {
     slug: "smartshelf",
     icon: "Package",
     title: "SmartShelf",

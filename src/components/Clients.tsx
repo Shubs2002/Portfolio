@@ -3,9 +3,18 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ShoppingCart, TrendingUp, Quote, Video, ExternalLink, Instagram } from "lucide-react";
+import { ShoppingCart, TrendingUp, Quote, Video, ExternalLink, Instagram, Building2 } from "lucide-react";
 
 const clients = [
+  {
+    icon: Building2,
+    name: "Forever Consultants",
+    type: "Financial Advisory Firm",
+    description: "Built a comprehensive financial advisory platform with scroll-based navigation, Cal.com booking, digital vCards, trophy showcase, and full SEO optimization — delivered in just 2 weeks.",
+    services: ["Full Stack Development", "SEO Optimization", "Analytics Setup", "Booking Integration"],
+    color: "from-amber-600 to-orange-600",
+    link: "https://www.foreverconsultants.in",
+  },
   {
     icon: TrendingUp,
     name: "Next-gen Finance",
