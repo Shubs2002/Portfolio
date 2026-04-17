@@ -87,12 +87,21 @@ export const metadata: Metadata = {
     title: "Shubham Nakashe | Full Stack Developer & AI Specialist — Mumbai, India",
     description: "Full Stack Web Developer specializing in MERN, Next.js, Python, AI/ML, and e-commerce. Built production-grade platforms for financial advisors, content creators & startups. Delivered 10+ projects. Let's build something amazing together.",
     countryName: "India",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dc3o4l7rx/image/upload/q_auto/f_auto/v1776439268/Black_and_Gray_Minimalist_Creative_Portfolio_Presentation_fuafoo.png",
+        width: 1200,
+        height: 630,
+        alt: "Shubham Nakashe Portfolio Preview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Shubham Nakashe | Full Stack Developer & AI Specialist",
     description: "Full Stack Developer from Mumbai, India. MERN, Next.js, Python, AI/ML. 10+ production projects delivered. Open for freelance & collaborations.",
     creator: "@shubham_nakashe",
+    images: ["https://res.cloudinary.com/dc3o4l7rx/image/upload/q_auto/f_auto/v1776439268/Black_and_Gray_Minimalist_Creative_Portfolio_Presentation_fuafoo.png"],
   },
   robots: {
     index: true,
