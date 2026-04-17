@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "en_IN",
       images: [
         {
-          url: "https://res.cloudinary.com/dc3o4l7rx/image/upload/v1768034310/Untitled_design_1_uiisqp.png",
+          url: project.preview || "https://www.shubham-nakashe.dev/og-image.png",
           width: 1200,
           height: 630,
           alt: `${project.title} — ${project.tagline} | Shubham Nakashe Portfolio`,
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.title} | Shubham Nakashe`,
       description: project.description,
       creator: "@shubham_nakashe",
-      images: ["https://res.cloudinary.com/dc3o4l7rx/image/upload/v1768034310/Untitled_design_1_uiisqp.png"],
+      images: [project.preview || "https://www.shubham-nakashe.dev/og-image.png"],
     },
     alternates: {
       canonical: `https://www.shubham-nakashe.dev/project/${project.slug}`,

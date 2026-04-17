@@ -1,9 +1,16 @@
+export interface ProjectClientLink {
+  label: string;
+  url: string;
+  type: "website" | "youtube" | "instagram" | "maps";
+}
+
 export interface Client {
   name: string;
   type: string;
   link?: string;
   isYouTube?: boolean;
   isInstagram?: boolean;
+  links?: ProjectClientLink[];
 }
 
 export interface Project {
@@ -203,10 +210,22 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "Google Veo-3.1", "React", "Node.js", "Next JS", "Gemini 3"],
     color: "from-violet-600 to-purple-600",
     clients: [
-      { name: "Floof's World", type: "YouTube Content Creator", link: "https://youtube.com/@floofsworld?si=jA2pyxddlk6gu_yR", isYouTube: true },
-      { name: "Floof's World", type: "Instagram Content Creator", link: "https://www.instagram.com/floofs._.world?igsh=MXh4eDBwaWwxMDFoMQ==", isInstagram: true },
-      { name: "ArtRage Studios", type: "YouTube Content Creator", link: "https://youtube.com/@artrage-studios?si=KoLRKZimpUNYhL-g", isYouTube: true },
-      { name: "AVPE Productions", type: "Instagram Content Creator", link: "https://www.instagram.com/avpe.productions?igsh=MTE3NzBnMHN6b2t6eg==", isInstagram: true }
+      { 
+        name: "Floof's World", 
+        type: "Content Creator", 
+        links: [
+          { label: "YouTube", url: "https://youtube.com/@floofsworld?si=LWp5UjsccKYT0oWX", type: "youtube" },
+          { label: "Instagram", url: "https://www.instagram.com/floofs._.world?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", type: "instagram" }
+        ]
+      },
+      { 
+        name: "ArtRage Studios", 
+        type: "Content Creator", 
+        links: [
+          { label: "YouTube", url: "https://yt.openinapp.co/atucv", type: "youtube" },
+          { label: "Instagram", url: "https://insta.openinapp.co/teti0", type: "instagram" }
+        ]
+      }
     ],
     status: "In Development",
     year: "2025"

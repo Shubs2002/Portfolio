@@ -2,12 +2,25 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search, Building2 } from "lucide-react";
-import type { Project } from "@/data/projects";
+import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search, Building2, Youtube, Instagram, MapPin } from "lucide-react";
+import type { Project, ProjectClientLink } from "@/data/projects";
 
 const iconMap: { [key: string]: React.ElementType } = {
   Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search, Building2
 };
+
+function getLinkIcon(type: ProjectClientLink["type"]) {
+  switch (type) {
+    case "youtube":
+      return <Youtube size={14} />;
+    case "instagram":
+      return <Instagram size={14} />;
+    case "maps":
+      return <MapPin size={14} />;
+    default:
+      return <ExternalLink size={14} />;
+  }
+}
 
 interface ProjectContentProps {
   project: Project;
@@ -195,7 +208,21 @@ export default function ProjectContent({ project, iconName }: ProjectContentProp
                             <h3 className="text-white font-semibold text-base sm:text-lg">{client.name}</h3>
                           </div>
                           <p className="text-gray-500 text-sm mb-3">{client.type}</p>
-                          {client.link && (
+                          {client.links && client.links.length > 0 ? (
+                            <div className="flex flex-wrap gap-3">
+                              {client.links.map((link, j) => (
+                                <a
+                                  key={j}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 text-purple-500 hover:text-purple-400 text-sm transition-colors"
+                                >
+                                  {getLinkIcon(link.type)} {link.label}
+                                </a>
+                              ))}
+                            </div>
+                          ) : client.link ? (
                             <a
                               href={client.link}
                               target="_blank"
@@ -205,7 +232,7 @@ export default function ProjectContent({ project, iconName }: ProjectContentProp
                               <ExternalLink size={14} />
                               {client.isYouTube ? "View Channel" : client.isInstagram ? "View Profile" : "Visit Website"}
                             </a>
-                          )}
+                          ) : null}
                         </div>
                       ))}
                     </div>

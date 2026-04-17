@@ -1,10 +1,12 @@
+import { projects } from "@/data/projects";
+
 export default function StructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Shubham Nakashe",
     "url": "https://www.shubham-nakashe.dev",
-    "image": "https://res.cloudinary.com/dc3o4l7rx/image/upload/v1768034310/Untitled_design_1_uiisqp.png",
+    "image": "https://www.shubham-nakashe.dev/og-image.png",
     "sameAs": [
       "https://www.linkedin.com/in/shubham-nakashe-01b497219/",
       "https://github.com/Shubs2002",
@@ -82,7 +84,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Shubham Nakashe — Web Development & AI Services",
-    "image": "https://res.cloudinary.com/dc3o4l7rx/image/upload/v1768034310/Untitled_design_1_uiisqp.png",
+    "image": "https://www.shubham-nakashe.dev/og-image.png",
     "url": "https://www.shubham-nakashe.dev",
     "telephone": "+919270291116",
     "email": "shubhamnakashe2002@gmail.com",
@@ -150,64 +152,19 @@ export default function StructuredData() {
     "@type": "ItemList",
     "name": "Portfolio Projects by Shubham Nakashe",
     "description": "Featured web development and AI projects",
-    "numberOfItems": 10,
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "Forever Consultants",
-          "description": "Full-service financial advisory website for an award-winning Mumbai-based firm with booking system, vCards, and SEO optimization.",
-          "url": "https://www.shubham-nakashe.dev/project/forever-consultants",
-          "author": { "@type": "Person", "name": "Shubham Nakashe" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "SmartShelf",
-          "description": "AI-powered inventory management platform with real-time tracking and demand prediction.",
-          "url": "https://www.shubham-nakashe.dev/project/smartshelf",
-          "author": { "@type": "Person", "name": "Shubham Nakashe" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "SUKTA",
-          "description": "AI-powered chatbot that analyzes any website with semantic search and background processing.",
-          "url": "https://www.shubham-nakashe.dev/project/sukta",
-          "author": { "@type": "Person", "name": "Shubham Nakashe" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "AVPE",
-          "description": "AI-powered video production ecosystem automating scriptwriting, character design, and video creation.",
-          "url": "https://www.shubham-nakashe.dev/project/avpe",
-          "author": { "@type": "Person", "name": "Shubham Nakashe" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "item": {
-          "@type": "CreativeWork",
-          "name": "Aadya Creation",
-          "description": "Full-stack e-commerce platform with payment integration and inventory management.",
-          "url": "https://www.shubham-nakashe.dev/project/aadya-creation",
-          "author": { "@type": "Person", "name": "Shubham Nakashe" }
-        }
+    "numberOfItems": projects.length,
+    "itemListElement": projects.map((project, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": project.title,
+        "description": project.description,
+        "url": `https://www.shubham-nakashe.dev/project/${project.slug}`,
+        "image": project.preview || "https://www.shubham-nakashe.dev/og-image.png",
+        "author": { "@type": "Person", "name": "Shubham Nakashe" }
       }
-    ]
+    }))
   };
 
   // BreadcrumbList for navigation structure
