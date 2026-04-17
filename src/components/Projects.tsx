@@ -14,6 +14,7 @@ const products = [
     description: "Full-service financial advisory website — LIC Insurance, Mutual Funds, Health Insurance — with booking, vCards, SEO & Analytics. Delivered in 2 weeks.", 
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Cal.com", "SEO"], 
     link: "https://www.foreverconsultants.in", 
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fwww.foreverconsultants.in&screenshot=true&meta=false&embed=screenshot.url",
     color: "from-amber-600 to-orange-600",
     featured: true
   },
@@ -24,6 +25,7 @@ const products = [
     description: "Client-focused financial services frontend with intuitive design and analytics integration.", 
     tech: ["Next.js", "TypeScript", "Google Analytics"], 
     link: "https://next-gen-finance.vercel.app", 
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fnext-gen-finance.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     color: "from-blue-600 to-indigo-600",
     featured: true,
     inDevelopment: true
@@ -53,6 +55,7 @@ const products = [
     description: "Web Intelligence Platform - AI-powered chatbot that analyzes any website. Scrape once, ask unlimited questions with real-time status updates and background job processing.", 
     tech: ["Next.js 15", "Express", "BullMQ", "PostgreSQL", "Drizzle ORM", "Redis", "Playwright", "OpenRouter AI", "Tailwind"], 
     link: "https://web-production-e841.up.railway.app/",
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fweb-production-e841.up.railway.app%2F&screenshot=true&meta=false&embed=screenshot.url",
     github: "https://github.com/Shubs2002/SUKTA",
     color: "from-cyan-600 to-blue-600",
     featured: true
@@ -104,13 +107,27 @@ export default function Projects() {
               onClick={() => handleCardClick(project.slug)}
               className="group bg-[#111] border border-gray-800 rounded-xl sm:rounded-2xl overflow-hidden card-hover cursor-pointer flex flex-col"
             >
-              <div className={`h-36 sm:h-44 bg-gradient-to-r ${project.color} relative flex-shrink-0`}>
-                <div className="absolute inset-0 bg-black/30" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <project.icon size={44} className="sm:w-14 sm:h-14 text-white/80" />
-                </div>
+              <div className={`h-36 sm:h-44 bg-gradient-to-r ${project.color} relative flex-shrink-0 overflow-hidden`}>
+                {project.preview ? (
+                  <>
+                    <img
+                      src={project.preview}
+                      alt={`${project.title} website preview`}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent opacity-60" />
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-black/30" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <project.icon size={44} className="sm:w-14 sm:h-14 text-white/80" />
+                    </div>
+                  </>
+                )}
                 {project.featured && (
-                  <div className="absolute top-3 right-3 px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-[10px] sm:text-xs font-medium">
+                  <div className="absolute top-3 right-3 px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-[10px] sm:text-xs font-medium z-10">
                     Featured
                   </div>
                 )}

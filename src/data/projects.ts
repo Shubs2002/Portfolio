@@ -19,6 +19,7 @@ export interface Project {
   link?: string;
   github?: string;
   clients?: Client[];
+  preview?: string;
   status: "Live" | "In Development" | "Completed";
   year: string;
 }
@@ -51,6 +52,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "EmailJS", "Cal.com", "Vercel", "Google Analytics", "SEO"],
     color: "from-amber-600 to-orange-600",
     link: "https://www.foreverconsultants.in",
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fwww.foreverconsultants.in&screenshot=true&meta=false&embed=screenshot.url",
     clients: [
       { name: "Forever Consultants", type: "Financial Advisory Firm", link: "https://www.foreverconsultants.in" }
     ],
@@ -110,6 +112,7 @@ export const projects: Project[] = [
     color: "from-cyan-600 to-blue-600",
     link: "https://web-production-e841.up.railway.app/",
     github: "https://github.com/Shubs2002/SUKTA",
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fweb-production-e841.up.railway.app%2F&screenshot=true&meta=false&embed=screenshot.url",
     status: "Live",
     year: "2025"
   },
@@ -168,6 +171,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Google Analytics"],
     color: "from-blue-600 to-indigo-600",
     link: "https://next-gen-finance.vercel.app",
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fnext-gen-finance.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     clients: [
       { name: "Next-gen Finance", type: "Financial Services", link: "https://next-gen-finance.vercel.app" }
     ],

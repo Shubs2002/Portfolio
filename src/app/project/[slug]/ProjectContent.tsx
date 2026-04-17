@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, CheckCircle, Users, Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search, Building2 } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 const iconMap: { [key: string]: React.ElementType } = {
-  Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search
+  Package, ShoppingCart, Brain, Video, Globe, Rocket, Leaf, Plane, Search, Building2
 };
 
 interface ProjectContentProps {
@@ -103,6 +103,45 @@ export default function ProjectContent({ project, iconName }: ProjectContentProp
             </motion.div>
           </div>
         </section>
+
+        {/* Website Preview Section */}
+        {project.link && (
+          <section className="px-4 sm:px-6 pb-8 sm:pb-12">
+            <div className="max-w-5xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+              >
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Live Preview</h2>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block relative rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-colors"
+                >
+                  {project.preview ? (
+                    <img
+                      src={project.preview}
+                      alt={`${project.title} live website preview`}
+                      className="w-full h-auto max-h-[500px] object-cover object-top"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className={`w-full h-64 sm:h-80 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                      <IconComponent size={64} className="text-white/40" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md rounded-xl text-white font-medium text-sm sm:text-base border border-white/20">
+                      <ExternalLink size={18} /> View Full Site
+                    </span>
+                  </div>
+                </a>
+              </motion.div>
+            </div>
+          </section>
+        )}
 
         {/* Main Content */}
         <section className="px-4 sm:px-6 pb-16 sm:pb-20">
