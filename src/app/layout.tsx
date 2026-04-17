@@ -86,22 +86,12 @@ export const metadata: Metadata = {
     siteName: "Shubham Nakashe — Full Stack Developer Portfolio",
     title: "Shubham Nakashe | Full Stack Developer & AI Specialist — Mumbai, India",
     description: "Full Stack Web Developer specializing in MERN, Next.js, Python, AI/ML, and e-commerce. Built production-grade platforms for financial advisors, content creators & startups. Delivered 10+ projects. Let's build something amazing together.",
-    images: [
-      {
-        url: "https://www.shubham-nakashe.dev/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Shubham Nakashe — Full Stack Developer & AI Specialist Portfolio",
-        type: "image/png",
-      },
-    ],
     countryName: "India",
   },
   twitter: {
     card: "summary_large_image",
     title: "Shubham Nakashe | Full Stack Developer & AI Specialist",
     description: "Full Stack Developer from Mumbai, India. MERN, Next.js, Python, AI/ML. 10+ production projects delivered. Open for freelance & collaborations.",
-    images: ["https://www.shubham-nakashe.dev/og-image.png"],
     creator: "@shubham_nakashe",
   },
   robots: {
